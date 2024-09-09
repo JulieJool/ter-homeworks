@@ -21,7 +21,13 @@ variable "default_zone" {
   default     = "ru-central1-a"
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
 }
-variable "default_cidr" {
+
+variable "default_zone_a" {
+  type        = string
+  default     = "ru-central1-a"
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+}
+variable "default_cidr_a" {
   type        = list(string)
   default     = ["10.0.1.0/24"]
   description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
@@ -33,6 +39,10 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
+variable "subnet_a_name" {
+  type = string
+  default = "develop-ru-cebtral1-a"
+}
 
 ###ssh vars
 
@@ -42,7 +52,7 @@ variable "vms_ssh_root_key" {
   description = "ssh-keygen -t ed25519"
 }
 
-variable "vm_web_family" {
+variable "vm_family" {
   type        = string
   default     = "ubuntu-2004-lts"
   description = "family of the used os"
@@ -75,12 +85,12 @@ variable "vm_web_core_fraction" {
   default = 20
 }
 
-variable "vm_web_preemptible" {
+variable "vm_preemptible" {
   type    = bool
   default = true
 }
 
-variable "vm_web_nat" {
+variable "vm_nat" {
   type    = bool
   default = true
 }
