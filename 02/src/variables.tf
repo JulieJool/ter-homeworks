@@ -1,16 +1,18 @@
 ###cloud vars
-variable "token" {
+/*variable "token" {
   type        = string
   description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
-}
+}*/
 
 variable "cloud_id" {
   type        = string
+  default     = "b1g9qhatvl2668hcgv5r"
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"
 }
 
 variable "folder_id" {
   type        = string
+  default     = "b1gb7lk95d3ritbm7pen"
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
@@ -36,6 +38,54 @@ variable "vpc_name" {
 
 variable "vms_ssh_root_key" {
   type        = string
-  default     = "<your_ssh_ed25519_key>"
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMoDDApcuR7mlkfrUZsgcDHnRdGXGdBXFJ8EtJEVbzHM root@SecondVM"
   description = "ssh-keygen -t ed25519"
 }
+
+variable "vm_web_family" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+  description = "family of the used os"
+}
+
+variable "vm_web_name" {
+  type        = string
+  default     = "netology-develop-platform-web"
+  description = "name of the created vm"
+}
+
+variable "vm_web_platform_id" {
+  type        = string
+  default     = "standard-v3"  
+  description = "processor type"
+}
+
+variable "vm_web_cores" {
+  type    = number
+  default = 2
+}
+
+variable "vm_web_memory" {
+  type    = number
+  default = 1
+}
+
+variable "vm_web_core_fraction" {
+  type    = number
+  default = 20
+}
+
+variable "vm_web_preemptible" {
+  type    = bool
+  default = true
+}
+
+variable "vm_web_nat" {
+  type    = bool
+  default = true
+}
+
+
+
+
+
