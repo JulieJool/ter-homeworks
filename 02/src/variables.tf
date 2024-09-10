@@ -58,13 +58,13 @@ variable "vm_family" {
   description = "family of the used os"
 }
 
-/*variable "vm_web_name" {
+variable "vm_web_name" {
   type        = string
   default     = "netology-develop-platform-web"
   description = "name of the created vm"
 }
 
-variable "vm_web_platform_id" {
+/*variable "vm_web_platform_id" {
   type        = string
   default     = "standard-v3"  
   description = "processor type"

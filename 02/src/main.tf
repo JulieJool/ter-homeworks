@@ -20,7 +20,7 @@ data "yandex_compute_image" "ubuntu" {
   family = var.vm_family
 }
 resource "yandex_compute_instance" "platform" {
-  name        = var.vms_features.web.name
+  name        = local.vms_names.web
   platform_id = var.vms_features.web.used_platform
   zone = var.vms_features.web.zone
   resources {
@@ -46,7 +46,7 @@ resource "yandex_compute_instance" "platform" {
 }
 
 resource "yandex_compute_instance" "platform_db" {
-  name        = var.vms_features.db.name
+  name        = local.vms_names.db
   platform_id = var.vms_features.db.used_platform
   zone = var.vms_features.db.zone
   resources {
