@@ -54,7 +54,6 @@ variable "vm_db_core_fraction" {
 
 variable "vms_features" {
   type = map(object({
- #   name          = string
     cores         = number
     memory        = number
     core_fraction = number
@@ -65,7 +64,6 @@ variable "vms_features" {
   }))
   default = {
     web = {
-     #   name          = "netology-develop-platform-web"
         cores         = 2
         memory        = 1
         core_fraction = 20
@@ -76,7 +74,6 @@ variable "vms_features" {
 
     }
     db = {
-     #   name          = "netology-develop-platform-db"
         cores         = 2
         memory        = 2
         core_fraction = 20
