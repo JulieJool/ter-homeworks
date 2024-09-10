@@ -58,7 +58,7 @@ variable "vm_family" {
   description = "family of the used os"
 }
 
-variable "vm_web_name" {
+/*variable "vm_web_name" {
   type        = string
   default     = "netology-develop-platform-web"
   description = "name of the created vm"
@@ -93,7 +93,7 @@ variable "vm_preemptible" {
 variable "vm_nat" {
   type    = bool
   default = true
-}
+}*/
 
 
 

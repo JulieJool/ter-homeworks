@@ -25,7 +25,7 @@ variable "subnet_b_name" {
 }*/
 
 
-variable "vm_db_name" {
+/*variable "vm_db_name" {
   type        = string
   default     = "netology-develop-platform-db"
   description = "name of the created vm"
@@ -50,7 +50,49 @@ variable "vm_db_memory" {
 variable "vm_db_core_fraction" {
   type    = number
   default = 20
+}*/
+
+variable "vms_features" {
+  type = map(object({
+    name          = string
+    cores         = number
+    memory        = number
+    core_fraction = number
+    used_platform = string
+    zone          = string
+    preemptible   = bool
+    nat           = bool
+  }))
+  default = {
+    web = {
+        name          = "netology-develop-platform-web"
+        cores         = 2
+        memory        = 1
+        core_fraction = 20
+        used_platform = "standard-v3" 
+        zone          = "ru-central1-a"
+        preemptible   = true
+        nat           = true
+
+    }
+    db = {
+        name          = "netology-develop-platform-db"
+        cores         = 2
+        memory        = 2
+        core_fraction = 20
+        used_platform = "standard-v3" 
+        zone          = "ru-central1-b"
+        preemptible   = true
+        nat           = true
+
+    }
+  }
 }
 
-
-
+variable "metadata" {
+    type = map(string)
+    default = {
+       serial-port-enable = "1"
+       ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMoDDApcuR7mlkfrUZsgcDHnRdGXGdBXFJ8EtJEVbzHM root@SecondVM"
+    }
+}
