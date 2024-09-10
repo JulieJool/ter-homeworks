@@ -87,9 +87,9 @@ variable "vms_features" {
 }
 
 variable "metadata" {
-    type = map(string)
+    type = map(any)
     default = {
-       serial-port-enable = "1"
+       serial-port-enable = 1
        ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMoDDApcuR7mlkfrUZsgcDHnRdGXGdBXFJ8EtJEVbzHM root@SecondVM"
     }
 }
