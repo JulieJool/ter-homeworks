@@ -94,3 +94,24 @@ variable "each_vm" {
 
 }
 
+variable "storage_vm" {
+  type = list(object({
+    vm_name       = string
+    platform_id   = string
+    cores         = number
+    memory        = number
+    core_fraction = number
+    preemptible   = bool
+    nat           = bool
+  }))
+  default = [ {
+    vm_name       = "storage"
+    platform_id   = "standard-v3"
+    cores         = 2
+    memory        = 4
+    core_fraction = 20
+    preemptible   = true
+    nat           = true
+  } ]
+
+}
