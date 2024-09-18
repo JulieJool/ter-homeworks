@@ -30,3 +30,67 @@ variable "vpc_name" {
   default     = "develop"
   description = "VPC network&subnet name"
 }
+
+variable "family" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+  description = "used os type"
+}
+
+variable "platform" {
+  type        = string
+  default     = "standard-v3"
+  description = "processor type"
+}
+
+variable "cores" {
+  type        = number
+  default     = 2
+}
+
+variable "memory" {
+  type        = number
+  default     = 1
+}
+
+variable "core_fraction" {
+  type        = number
+  default     = 20
+}
+
+variable "preemptible" {
+  type        = bool
+  default     = true
+}
+
+variable "nat" {
+  type        = bool
+  default     = true
+}
+
+/*variable "metadata" {
+    type = map(any)
+    default = {
+       serial-port-enable = 1
+       ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMoDDApcuR7mlkfrUZsgcDHnRdGXGdBXFJ8EtJEVbzHM root@SecondVM"
+    }
+}*/
+
+variable "each_vm" {
+  type = list(object({
+    vm_name       = string
+    platform_id   = string
+    cores         = number
+    memory        = number
+    core_fraction = number
+    size          = number
+    preemptible   = bool
+    nat           = bool
+  }))
+  default = [ 
+    {vm_name = "main", platform_id = "standard-v3", cores = 4, memory = 10, core_fraction = 20, size = 40,preemptible = false, nat = true},
+    {vm_name = "replica", platform_id = "standard-v3", cores = 2, memory = 5, core_fraction = 10, size = 20,preemptible = true, nat = true}
+  ]
+
+}
+
